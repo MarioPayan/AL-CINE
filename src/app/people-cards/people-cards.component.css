@@ -3,6 +3,11 @@ md-grid-tile {
     background-repeat: no-repeat;
     background-position: center center;
     cursor: pointer;
+    transition: filter 300ms ease-in-out;
+}
+
+md-grid-tile:hover {
+    filter: brightness(130%);
 }
 
 .subtittle {

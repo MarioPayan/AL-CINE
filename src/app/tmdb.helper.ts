@@ -3,9 +3,7 @@ export class TmdbHelper {
   baseUrlSrc = "http://image.tmdb.org/t/p/w300";
   
   constructor() { }
-  /**Metodo encargado de devolver las url completas para los recursos
-   * @param {src:string} Identificador del recurso
-   * @return {:string} Url completa del recurso */
+
   getUrlSrc(src: string): string {
     if(src){
     return `${this.baseUrlSrc}${src}`;
@@ -13,10 +11,33 @@ export class TmdbHelper {
       return `assets/images/no-preview.png`;
     }
   }
-  /**Metodo encatado de retornar una imagen por defecto cuando el recurso
-   * no es encontrado
-   * @return {:string} url del recurso */
+
   getImgNoFound(): string {
     return `assets/images/no-found.png`;
+  }
+
+  sortMovies(movies): any[] {
+    movies.sort((movieA: any, movieB: any) => {
+      if (movieA.release_date == null) return 1;
+      if (movieB.release_date == null) return -1;
+      let dateA = movieA.release_date.split('-');
+      let dateB = movieB.release_date.split('-');
+      if (dateA[0] > dateB[0]) {
+        return -1;
+      } else if (dateA[0] < dateB[0]) {
+        return 1;
+      } else if (dateA[1] > dateB[1]) {
+        return -1;
+      } else if (dateA[1] < dateB[1]) {
+        return 1;
+      } else if (dateA[2] > dateB[2]) {
+        return -1;
+      } else if (dateA[2] < dateB[2]) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    return movies;
   }
 }

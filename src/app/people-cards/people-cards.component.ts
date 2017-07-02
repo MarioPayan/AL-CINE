@@ -15,7 +15,6 @@ export class PeopleCardsComponent implements OnInit {
   @Input() private filter: string;
   @Input() private id: string;
   private persons = [];
-  private title = "";
   private subscription: Subscription;
   
   constructor(
@@ -33,13 +32,11 @@ export class PeopleCardsComponent implements OnInit {
   				.subscribe(persons => {
   					this.persons = persons.results;
   				});
-  				this.title = "Popular persons";
 			} else if(this.filter==='cast'){
   			this.tmdbService.getCastPersons(this.id)
   				.subscribe(persons => {
   					this.persons = persons.cast.slice(0,4);
   				});
-  				this.title = "Important cast";
 			}
 			this.filter = null;
     });

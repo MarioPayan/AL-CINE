@@ -1,8 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { MoviesComponent } from './movies.component';
-import { MovieCardsModule } from '../movie-cards/movie-cards.module';
+import { MovieComponent } from './movie.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -15,19 +14,18 @@ import { HttpModule } from '@angular/http';
 import { TmdbService } from '../tmdb.service';
 import { TmdbHelper } from '../tmdb.helper';
 
-const moviesRouting: ModuleWithProviders = RouterModule.forChild([
+const movieRouting: ModuleWithProviders = RouterModule.forChild([
   {
-    path: 'movies',
-    component: MoviesComponent,
+    path: 'movie/:id',
+    component: MovieComponent,
   }
 ]);
 
 @NgModule({
   imports: [
-    moviesRouting,
+    movieRouting,
     BrowserAnimationsModule,
     CommonModule,
-    MovieCardsModule,
     FormsModule,
     HttpModule,
     MaterialModule,
@@ -35,7 +33,7 @@ const moviesRouting: ModuleWithProviders = RouterModule.forChild([
     ReactiveFormsModule,
   ],
   declarations: [
-    MoviesComponent,
+    MovieComponent,
   ],
   providers: [
     TmdbService,
@@ -43,4 +41,4 @@ const moviesRouting: ModuleWithProviders = RouterModule.forChild([
   ],
 })
 
-export class MoviesModule {}
+export class MovieModule {}

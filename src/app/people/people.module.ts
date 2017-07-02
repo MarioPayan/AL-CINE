@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { PeopleComponent } from './people.component';
-import { PeopleCardsComponent } from '../people-cards/people-cards.component';
+import { PeopleCardsModule } from '../people-cards/people-cards.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -28,6 +28,7 @@ const peopleRouting: ModuleWithProviders = RouterModule.forChild([
     BrowserAnimationsModule,
     CommonModule,
     FormsModule,
+    PeopleCardsModule,
     HttpModule,
     MaterialModule,
     MdNativeDateModule,
@@ -35,12 +36,11 @@ const peopleRouting: ModuleWithProviders = RouterModule.forChild([
   ],
   declarations: [
     PeopleComponent,
-    PeopleCardsComponent
   ],
   providers: [
     TmdbService,
     TmdbHelper
-  ],
+  ]
 })
 
 export class PeopleModule {}

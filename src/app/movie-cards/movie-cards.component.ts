@@ -14,8 +14,8 @@ export class MovieCardsComponent implements OnInit {
   
   @Input() private filter: string;
   @Input() private id: string;
+  @Input() private castAndCrew: string;
   private movies = [];
-  private title = "";
   private subscription: Subscription;
   
   constructor(
@@ -28,43 +28,51 @@ export class MovieCardsComponent implements OnInit {
   ngOnInit() {
     this.subscription = this.route.params.subscribe((param: any) => {
 			if(!this.filter) this.filter = param['filter'];
-			if(this.filter==='popular'){
+      if(this.filter === "cast") this.castAndCrew = "OK";
+			if(this.filter === 'popular'){
   			this.tmdbService.getPopularMovies()
   				.subscribe(movies => {
   					this.movies = movies.results;
   				});
-  				this.title = "Popular movies";
-			} else if(this.filter==='top'){
+			} else if(this.filter === 'top'){
   			this.tmdbService.getTopMovies()
   				.subscribe(movies => {
   					this.movies = movies.results;
   				});
-  				this.title = "Top movies";
-			} else if(this.filter==='upcoming'){
+			} else if(this.filter === 'upcoming'){
   			this.tmdbService.getUpcomingMovies()
   				.subscribe(movies => {
   					this.movies = movies.results;
   				});
-  				this.title = "Upcoming movies";
-			} else if(this.filter==='nowplaying'){
+			} else if(this.filter === 'nowplaying'){
   			this.tmdbService.getNowplayingMovies()
   				.subscribe(movies => {
   					this.movies = movies.results;
   				});
-  				this.title = "Now playing movies";
-			} else if(this.filter==='similar'){
+			} else if(this.filter === 'similar'){
   			this.tmdbService.getSimilarMovies(this.id)
   				.subscribe(movies => {
   					this.movies = movies.results.slice(0, 8);;
   				});
-  				this.title = "Similar movies";
-			}
+			} else if(this.filter === 'cast'){
+        this.tmdbService.getMovieCreditsPerson(this.id)
+          .subscribe(movies => {
+            this.movies = movies.cast;
+            this.tmdbHelper.sortMovies(this.movies);
+          });
+      } else if(this.filter === 'crew'){
+        this.tmdbService.getMovieCreditsPerson(this.id)
+          .subscribe(movies => {
+            this.movies = movies.crew;
+            this.tmdbHelper.sortMovies(this.movies);
+          });
+      }
 			this.filter = null;
     });
   }
   
-  ngOnChanges(): any{
-    if(this.id!=null){
+  ngOnChanges(): any {
+    if(this.id != null && this.castAndCrew === null){
       this.filter = "similar";
       this.ngOnInit();
     }

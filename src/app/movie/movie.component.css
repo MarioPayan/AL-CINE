@@ -1,0 +1,48 @@
+.row {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+md-card-image {
+    padding: 5%;
+    width: 100%;
+}
+
+md-card {
+	background-color: rgba(70,3,90,0.4);
+}
+
+md-card-subtitle, md-card-title {
+	color: white;
+}
+
+md-card label {
+	color: white;
+}
+
+md-card-content p {
+	margin-left: 3%;
+}
+
+/deep/ .mat-tab-label {
+	color: white;
+	font-size: large;
+    font-weight: bold;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: rgb(171, 6, 204);
+}
+
+h6, h2, h3 {
+    margin-left: 5%;
+    color: rgb(171, 6, 204);
+}
+
+.video {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}

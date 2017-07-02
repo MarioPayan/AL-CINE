@@ -2,6 +2,8 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { MovieComponent } from './movie.component';
+import { MovieCardsModule } from '../movie-cards/movie-cards.module';
+import { PeopleCardsModule } from '../people-cards/people-cards.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -13,6 +15,8 @@ import { HttpModule } from '@angular/http';
 
 import { TmdbService } from '../tmdb.service';
 import { TmdbHelper } from '../tmdb.helper';
+
+import { PipeSafe } from './pipe.safe';
 
 const movieRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -27,6 +31,8 @@ const movieRouting: ModuleWithProviders = RouterModule.forChild([
     BrowserAnimationsModule,
     CommonModule,
     FormsModule,
+    MovieCardsModule,
+    PeopleCardsModule,
     HttpModule,
     MaterialModule,
     MdNativeDateModule,
@@ -34,6 +40,7 @@ const movieRouting: ModuleWithProviders = RouterModule.forChild([
   ],
   declarations: [
     MovieComponent,
+    PipeSafe
   ],
   providers: [
     TmdbService,

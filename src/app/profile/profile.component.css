@@ -23,6 +23,7 @@ md-card label {
 md-card-content p {
 	margin-left: 3%;
 }
+
 /deep/ .mat-tab-label {
 	color: white;
 	font-size: large;

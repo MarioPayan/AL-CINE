@@ -1,0 +1,19 @@
+.nav-button {
+	color: white;
+	font-size: large;
+    font-weight: bold;
+}
+
+/deep/ .mat-input-placeholder {
+    color: white;
+    font-size: large;
+}
+
+/deep/ .mat-input-container {
+	margin-left: 10%;
+}
+
+#home-icon {
+	margin-left: 5%;
+}
+

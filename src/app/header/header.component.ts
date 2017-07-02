@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule } from '@angular/material';
+import { MdInputModule } from '@angular/material';
+
 
 @Component({
   selector: 'layout-header',
@@ -8,7 +13,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  	private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
   }

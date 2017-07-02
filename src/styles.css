@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+	/*padding: 2em 23em;*/
+	background: url(assets/images/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: -10;
+}
+
+p {
+	color: white;
+}

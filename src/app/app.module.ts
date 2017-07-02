@@ -1,12 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeModule } from './home/home.module';
+import { MoviesModule } from './movies/movies.module';
+import { PeopleModule } from './people/people.module';
+
+import { TmdbService } from './tmdb.service';
+import { TmdbHelper } from './tmdb.helper';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
+import { ProfileComponent } from './profile/profile.component';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: false });
 
@@ -14,14 +26,29 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: fal
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProfileComponent,
   ],
   imports: [
-    BrowserModule,
     rootRouting,
-    HomeModule
+    BrowserModule,
+    HomeModule,
+    MoviesModule,
+    PeopleModule,
+    FormsModule,
+    //HttpModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    MdButtonModule,
+    MdMenuModule,
+    MdCardModule,
+    MdToolbarModule,
+    MdIconModule
   ],
-  providers: [],
+  providers: [
+    TmdbService,
+    TmdbHelper
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

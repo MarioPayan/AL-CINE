@@ -1,0 +1,10 @@
+/deep/ .mat-tab-label {
+	color: white;
+	font-size: large;
+    font-weight: bold;
+    margin: auto;
+}
+
+.card-panel {
+    padding: 0 12%;
+}

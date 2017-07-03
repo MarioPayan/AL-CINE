@@ -28,7 +28,7 @@ export class MovieCardsComponent implements OnInit {
   ngOnInit() {
     this.subscription = this.route.params.subscribe((param: any) => {
 			if(!this.filter) this.filter = param['filter'];
-      if(this.filter === "cast") this.castAndCrew = "OK";
+      if(this.filter === "cast" || this.filter === "crew") this.castAndCrew = "OK";
 			if(this.filter === 'popular'){
   			this.tmdbService.getPopularMovies()
   				.subscribe(movies => {
@@ -67,16 +67,13 @@ export class MovieCardsComponent implements OnInit {
             this.tmdbHelper.sortMovies(this.movies);
           });
       }
-			this.filter = null;
     });
   }
   
   ngOnChanges(): any {
-    if(this.id != null && this.castAndCrew === null){
-      this.filter = "similar";
+    if(this.id != null && this.castAndCrew != null){
       this.ngOnInit();
     }
-    
   }
   
   goMovie(id: number): void{

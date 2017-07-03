@@ -17,7 +17,7 @@
   </div>
   <div class="col-md-8 right-row">
     <h1>{{person.name}}</h1>
-    <h6>Also know as: {{person.also_known_as}}</h6>
+    <span *ngIf="person.also_known_as.items"><h6>Also know as: {{person.also_known_as}}</h6></span>
     <p>{{person.biography}}</p>
     <md-tab-group>[filter]="'top'"
       <md-tab label="As cast"> <movie-cards [filter]="'cast'" [id]="person.id"></movie-cards> </md-tab>

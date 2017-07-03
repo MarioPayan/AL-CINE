@@ -1,8 +1,21 @@
 <nav>
-  <a md-fab routerLink="." id="home-icon"><md-icon>check</md-icon></a>
+  <a md-fab routerLink="." id="home-icon"><md-icon></md-icon></a>
   <a md-button class="nav-button" routerLink="movies">Movies</a>
   <a md-button class="nav-button" routerLink="people">People</a>
-  <md-input-container>
-    <input mdInput placeholder="Search an actor">
-  </md-input-container>
+  <div class="search">
+    <md-input-container>
+      <input mdInput placeholder="Search an actor"
+      [(ngModel)]="query" name="query"
+      (ngModelChange)="queryTyping()"
+      (focus)="queryTyping()"
+      (mouseover)="queryTyping()">
+    </md-input-container>
+    <md-nav-list *ngIf="people && visible" (blur)="clearQuery()" (mouseleave)="hideQuery()" class="query-list">
+      <md-list-item class="person-tile" (click)="goProfile(person.id);" *ngFor="let person of people">
+        <div class="profile-image">
+          <img src="{{tmdbHelper.getUrlSrc(person.profile_path)}}" style="width: 25px; margin-right: 10px;" />{{person.name}}
+        </div>
+      </md-list-item>
+    </md-nav-list>
+  </div>
 </nav>

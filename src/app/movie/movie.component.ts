@@ -25,7 +25,6 @@ export class MovieComponent implements OnInit {
       this.tmdbService.getDetailMovie(id)
       .subscribe(movie => {
         this.movie = movie;
-        console.log(this.movie)
         this.rewrite();
       });
       

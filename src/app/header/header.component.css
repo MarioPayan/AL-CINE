@@ -20,3 +20,41 @@ nav {
 #home-icon {
 	margin-left: 5%;
 }
+
+input {
+	color: white;
+}
+
+a {
+    cursor: pointer;
+}
+
+.profile-image img {
+	width: 30px !important;
+}
+
+.query-list {
+	background-color: rgba(0,0,0,0.5);
+	position: absolute;
+	z-index: 10;
+	margin-left: 1.9%;
+	margin-top: -1.5%;
+}
+
+md-list-item {
+	cursor: pointer;
+    transition: filter 300ms ease-in-out;
+}
+
+md-list-item:hover {
+    filter: brightness(130%);
+}
+
+.profile-image{
+	color: white;
+	font-weight: bold;
+}
+
+.search {
+	display: inline-block;
+}

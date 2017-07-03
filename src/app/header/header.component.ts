@@ -5,8 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule } from '@angular/material';
 import { MdInputModule } from '@angular/material';
 
-import { TmdbService } from '../tmdb.service';
 import { TmdbHelper } from '../tmdb.helper';
+import { TmdbService2 } from '../tmdbOriginalApi.service';
 import { Observable, Subscription  } from 'rxjs/Rx';
 
 @Component({
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   constructor(
   	private route: ActivatedRoute,
     private router: Router,
-    private tmdbService: TmdbService,
+    private tmdbService: TmdbService2,
     private tmdbHelper : TmdbHelper
   ) { }
 

@@ -14,7 +14,7 @@ export class PeopleCardsComponent implements OnInit {
 
   @Input() private filter: string;
   @Input() private id: string;
-  private persons = [];
+  private people = [];
   private subscription: Subscription;
   
   constructor(
@@ -28,14 +28,14 @@ export class PeopleCardsComponent implements OnInit {
     this.subscription = this.route.params.subscribe((param: any) => {
 			if(!this.filter) this.filter = param['filter'];
 			if(this.filter==='popular'){
-  			this.tmdbService.getPopularPersons()
-  				.subscribe(persons => {
-  					this.persons = persons.results;
+  			this.tmdbService.getPopularPeople()
+  				.subscribe(people => {
+  					this.people = people.results;
   				});
 			} else if(this.filter==='cast'){
-  			this.tmdbService.getCastPersons(this.id)
-  				.subscribe(persons => {
-  					this.persons = persons.cast.slice(0,4);
+  			this.tmdbService.getCastPeople(this.id)
+  				.subscribe(people => {
+  					this.people = people.cast.slice(0,4);
   				});
 			}
 			this.filter = null;

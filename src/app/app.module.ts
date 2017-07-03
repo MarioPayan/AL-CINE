@@ -16,6 +16,7 @@ import { ProfileModule } from './profile/profile.module';
 import { MovieModule } from './movie/movie.module';
 
 import { TmdbService } from './tmdb.service';
+import { TmdbService2 } from './tmdbOriginalApi.service';
 import { TmdbHelper } from './tmdb.helper';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,7 +50,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: fal
   ],
   providers: [
     TmdbService,
-    TmdbHelper
+    TmdbHelper,
+    TmdbService2
   ],
   bootstrap: [AppComponent]
 })

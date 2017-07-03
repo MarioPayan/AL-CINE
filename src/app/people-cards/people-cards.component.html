@@ -3,7 +3,7 @@
   <md-grid-tile
   [style.background-image]="'url('+tmdbHelper.getUrlSrc(person.profile_path)+')'"
   (click)="goProfile(person.id);"
-  *ngFor="let person of persons">
+  *ngFor="let person of people">
     <span class="subtittle">
       <p class="subtittle-text">
         <b>{{person.name}}</b>

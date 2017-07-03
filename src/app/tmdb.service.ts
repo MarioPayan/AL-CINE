@@ -5,72 +5,73 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class TmdbService {
 
-  private url = "https://api.themoviedb.org/3/";
-  private apiKey = "518d83af872f927b98cfe36a90cd05b0";
-  private language = "en-US";
-  private adult = "false";
+  private urlBase = "http://alrestcine-mariopayan.c9users.io/";
 
   constructor(private http: Http) { }
 
   get(search: string, extra_puts=""): Observable<any> {
-  return this.http.get(`${this.url}${search}?api_key=${this.apiKey}&language=${this.language}${extra_puts}`)
+  return this.http.get(`${this.urlBase}${search}/?format=json`)
     .map(response => {
       return response.json();
     });
   }
   
-  getPopularMovies(): Observable<any> {
-    return this.get("movie/popular");
+  getDetailPerson(id: string): Observable<any> {
+    return this.get(`profile/${id}`);
   }
 
-  getPopularPersons(): Observable<any> {
-    return this.get("person/popular");
-  }
-  
-  getDetailPerson(id: string): Observable<any> {
-    return this.get(`person/${id}`);
-  }
-  
-  getMovieCreditsPerson(id: string): Observable<any> {
-    return this.get(`person/${id}/movie_credits`);
-  }
-  
-  getSearchPerson(query: string, page="1"): Observable<any> {
-    return this.get(
-      `search/person`,
-      `&query=${query}&page=${page}&include_adult=${this.adult}`
-    );
-  }
-  
   getImagesPerson(id: string): Observable<any> {
-    return this.get(`person/${id}/images`);
+    return this.get(`profile-images/${id}`);
   }
-  
+
   getDetailMovie(id: string): Observable<any> {
     return this.get(`movie/${id}`);
   }
-  
-  getVideoMovie(id: string): Observable<any> {
-    return this.get(`movie/${id}/videos`);
+
+  getPopularMovies(): Observable<any> {
+    return this.get("movies/1");
   }
-  
+
   getTopMovies(): Observable<any> {
-    return this.get("movie/top_rated");
+    return this.get("movies/2");
   }
   
   getUpcomingMovies(): Observable<any> {
-    return this.get("movie/upcoming");
+    return this.get("movies/3");
   }
   
   getNowplayingMovies(): Observable<any> {
-    return this.get("movie/now_playing");
+    return this.get("movies/4");
+  }
+
+  getPopularPeople(): Observable<any> {
+    return this.get("people-important/1");
   }
   
+  getMovieCreditsPerson(id: string): Observable<any> {
+    return this.get(`movie-credits/${id}`);
+  }
+
+  getCastPeople(id): Observable<any> {
+    return this.get(`movie-cast/${id}`);
+  }
+
   getSimilarMovies(id): Observable<any> {
-    return this.get(`movie/${id}/similar`);
+    return this.get(`movie-similar/${id}`);
   }
   
-  getCastPersons(id): Observable<any> {
-    return this.get(`movie/${id}/credits`);
+  getSerch(url: string): Observable<any> {
+    return this.http.get(url)
+    .map(response => {
+      return response.json();
+    });
+  }
+
+  getSearchPerson(query: string): Observable<any> {
+    return this.getSerch('https://api.themoviedb.org/3/search/person?api_key=518d83af872f927b98cfe36a90cd05b0&language=en-US&query=${query}&page=1&include_adult=false');
+  }
+
+  getVideoMovie(id: string): Observable<any> {
+    return this.get(`video/${id}`);
   }
 }

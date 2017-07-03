@@ -11,24 +11,14 @@ export class TmdbService {
   private adult = "false";
 
   constructor(private http: Http) { }
-   
-   /** Este metodo permite realizar consultas al api de tmdb
-   * @param {query:string} Cadena que conforma la busqueda a ser realizada por el metodo
-   * @return {:string} Devuelve el resultado de la consulta a la api en formato json
-   * */
-   get(search: string, extra_puts=""): Observable<any> {
-     return this.http.get(`${this.url}${search}?api_key=${this.apiKey}&language=${this.language}${extra_puts}`)
-      .map(response => {
-        return response.json();
-      });
+
+  get(search: string, extra_puts=""): Observable<any> {
+  return this.http.get(`${this.url}${search}?api_key=${this.apiKey}&language=${this.language}${extra_puts}`)
+    .map(response => {
+      return response.json();
+    });
   }
   
-  /** Los siguientes metodos utilizan el metodo get para realizar consultas a
-   * partir del metodo get para consultas especificas
-   * @param {id:string} Identificador del elemento a consultar
-   * @param {page:string} Pagina de la consulta en caso de ser paginacion
-   * @return {:string} Devuelve el resultado del metodo get (json)
-   * */
   getPopularMovies(): Observable<any> {
     return this.get("movie/popular");
   }
@@ -83,5 +73,4 @@ export class TmdbService {
   getCastPersons(id): Observable<any> {
     return this.get(`movie/${id}/credits`);
   }
-
 }

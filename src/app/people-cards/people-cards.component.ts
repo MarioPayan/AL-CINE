@@ -52,5 +52,4 @@ export class PeopleCardsComponent implements OnInit {
   goProfile(id: number): void{
     this.router.navigate(['/profile', id]);
   }
-
 }

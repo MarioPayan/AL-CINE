@@ -10,12 +10,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule, MdNativeDateModule} from '@angular/material';
 import {HttpModule} from '@angular/http';
 
-
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: '',
     component: HomeComponent,
-    //pathMatch: 'full'
   }
 ]);
 
@@ -35,4 +33,5 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
   providers: [
   ]
 })
+
 export class HomeModule {}

@@ -1,27 +1,27 @@
 <div class="row" *ngIf="person">
-    <div class="col-md-4 left-row">
-        <md-card>
-              <md-card-header>
-              <img md-card-avatar src="{{tmdbHelper.getUrlSrc(person.profile_path)}}">
-              <md-card-title>{{person.name}}</md-card-title>
-              <md-card-subtitle *ngIf="person.birthday">{{person.birthday}} — {{person.deathday}}</md-card-subtitle>
-           </md-card-header>
-           <br>
-           <img md-card-image *ngIf="image" src="{{tmdbHelper.getUrlSrc(image)}}">
-           <md-card-content>
-              <span *ngIf="person.popularity"><label>Popularity: </label> <p>{{person.popularity}}</p></span>
-              <label>Gender: </label> <p>{{person.gender}}</p>
-              <span *ngIf="person.place_of_birth"><label>Place of birth: </label> <p>{{person.place_of_birth}}</p></span>
-           </md-card-content>
-        </md-card>
-    </div>
-    <div class="col-md-8 right-row">
-        <h1>{{person.name}}</h1>
-        <h6>Also know as: {{person.also_known_as}}</h6>
-        <p>{{person.biography}}</p>
-        <md-tab-group>[filter]="'top'"
-		  <md-tab label="As cast"> <movie-cards [filter]="'cast'" [id]="person.id"></movie-cards> </md-tab>
-		  <md-tab label="As crew"> <movie-cards [filter]="'crew'" [id]="person.id"></movie-cards> </md-tab>
-		</md-tab-group>
-    </div>
+  <div class="col-md-4 left-row">
+    <md-card>
+      <md-card-header>
+        <img md-card-avatar src="{{tmdbHelper.getUrlSrc(person.profile_path)}}">
+        <md-card-title>{{person.name}}</md-card-title>
+        <md-card-subtitle *ngIf="person.birthday">{{person.birthday}} — {{person.deathday}}</md-card-subtitle>
+      </md-card-header>
+      <br>
+      <img md-card-image *ngIf="image" src="{{tmdbHelper.getUrlSrc(image)}}">
+      <md-card-content>
+        <span *ngIf="person.popularity"><label>Popularity: </label> <p>{{person.popularity}}</p></span>
+        <label>Gender: </label> <p>{{person.gender}}</p>
+        <span *ngIf="person.place_of_birth"><label>Place of birth: </label> <p>{{person.place_of_birth}}</p>  </span>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div class="col-md-8 right-row">
+    <h1>{{person.name}}</h1>
+    <h6>Also know as: {{person.also_known_as}}</h6>
+    <p>{{person.biography}}</p>
+    <md-tab-group>[filter]="'top'"
+      <md-tab label="As cast"> <movie-cards [filter]="'cast'" [id]="person.id"></movie-cards> </md-tab>
+      <md-tab label="As crew"> <movie-cards [filter]="'crew'" [id]="person.id"></movie-cards> </md-tab>
+    </md-tab-group>
+  </div>
 </div>

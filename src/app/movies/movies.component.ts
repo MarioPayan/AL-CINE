@@ -7,6 +7,7 @@ import { TmdbHelper } from '../tmdb.helper';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
+
 export class MoviesComponent implements OnInit {
 
   constructor(
@@ -16,5 +17,4 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

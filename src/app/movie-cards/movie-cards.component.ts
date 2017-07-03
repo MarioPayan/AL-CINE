@@ -82,5 +82,4 @@ export class MovieCardsComponent implements OnInit {
   goMovie(id: number): void{
     this.router.navigate(['/movie', id]);
   }
-
 }

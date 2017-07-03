@@ -7,6 +7,7 @@ import { TmdbHelper } from '../tmdb.helper';
   templateUrl: './people.component.html',
   styleUrls: ['./people.component.css']
 })
+
 export class PeopleComponent implements OnInit {
 
   constructor(
@@ -14,7 +15,5 @@ export class PeopleComponent implements OnInit {
 		private tmdbHelper: TmdbHelper,
   	) { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }

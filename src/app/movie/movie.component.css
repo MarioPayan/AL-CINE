@@ -41,6 +41,11 @@ h6, h2, h3 {
     color: rgb(171, 6, 204);
 }
 
+/deep/ .mat-card-subtitle {
+    font-style: italic;
+    float: right;
+}
+
 .video {
     display: block;
     margin: 0 auto;

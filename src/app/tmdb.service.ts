@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class TmdbService {
 
-  private urlBase = "http://alrestcine-mariopayan.c9users.io/";
+  private urlBase = "https://alrestcine-mariopayan.c9users.io/";
 
   constructor(private http: Http) { }
 

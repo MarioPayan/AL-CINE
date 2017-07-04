@@ -10,7 +10,7 @@ export class TmdbService {
   constructor(private http: Http) { }
 
   get(search: string, extra_puts=""): Observable<any> {
-  return this.http.get(`${this.urlBase}${search}/?format=json`)
+  return this.http.get(`${this.urlBase}${search}/`)
     .map(response => {
       return response.json();
     });
